@@ -108,6 +108,23 @@ return [
 
     'faker_locale' => 'en_US',
 
+    // Here it can be specified which languages are supported by the application
+
+    'supported_locales' => [
+        'hu' => [
+            'name' => 'Hungarian',
+            'flag' => 'hu'
+        ],
+        'en' => [
+            'name' => 'English',
+            'flag' => 'us'
+        ],
+        'ro' => [
+            'name' => 'Romanian',
+            'flag' => 'ro'
+        ],
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | Encryption Key
