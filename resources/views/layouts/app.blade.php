@@ -15,6 +15,7 @@
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Trade+Winds&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.3.1/css/flag-icon.min.css" rel="stylesheet"/>
 
@@ -23,14 +24,22 @@
 </head>
 <body>
 <div id="app">
-    <nav class="navbar navbar-expand navbar-light bg-dark shadow-sm">
+    <nav class="navbar navbar-expand-sm navbar-light bg-dark shadow-sm">
         <div class="container-self container" style="max-width: 95%">
             <div class="font-weight-bold logo">
                 <a class="navbar-brand" href="{{route('welcome', ['language' => app()->getLocale()])}}">
-                    <i class="color-green fas fa-anchor logo"></i>
+                    <i class="color-green fas fa-dragon"></i>
                     <span class="color-green logo">Peace</span><span class="text-white logo">Toy</span>
                 </a>
             </div>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="{{ __('Toggle navigation') }}">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav mr-auto">
 
@@ -41,7 +50,7 @@
             <ul class="navbar-nav ml-auto">
                 <div class="language dropdown mr-5">
                     <span
-                        class="flag-icon flag-icon-{{ Config::get(sprintf('app.supported_locales.%s.flag', app()->getLocale())) }} flag-lg"></span>
+                        data-toggle="dropdown" class="flag-icon flag-icon-{{ Config::get(sprintf('app.supported_locales.%s.flag', app()->getLocale())) }} flag-lg"></span>
                     <img class="language-arrow dropdown-toggle-split" src="/images/toggle.svg"
                          data-toggle="dropdown">
                     <div class="dropdown-menu dropdown-menu-right bg-info">

@@ -22,3 +22,7 @@ Route::group(['prefix' => '{language}', 'middleware' => 'localization'], functio
         return view('welcome');
     })->name('welcome');
 });
+
+Route::group(['prefix' => 'admin', 'middleware' => 'web'], function () {
+    Route::get('login', 'Admin\LoginController@index');
+});
