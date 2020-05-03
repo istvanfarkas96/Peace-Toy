@@ -24,5 +24,6 @@ Route::group(['prefix' => '{language}', 'middleware' => 'localization'], functio
 });
 
 Route::group(['prefix' => 'admin', 'middleware' => 'web'], function () {
-    Route::get('login', 'Admin\LoginController@index');
+    Route::get('dashboard', 'Admin\UserController@index')->name('admin.dashboard');
+    Route::get('users', 'Admin\UserController@listUsers')->name('admin.users');
 });
