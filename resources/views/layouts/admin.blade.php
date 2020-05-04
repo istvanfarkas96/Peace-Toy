@@ -35,15 +35,15 @@
 
             <nav class="sidebar-nav m-4">
                 <ul class="sidebar-list list-unstyled text-center">
-                    <li class="pt-3">
+                    <li class="pt-3 border-bottom">
                         <a href="{{route('admin.users')}}" class="text-decoration-none">Users</a>
                     </li>
 
-                    <li class="pt-3">
+                    <li class="pt-3 border-bottom">
                         <a href="" class="text-decoration-none">Subscriptions</a>
                     </li>
 
-                    <li class="pt-3">
+                    <li class="pt-3 border-bottom">
                         <a href="" class="text-decoration-none">Reviews</a>
                     </li>
 
@@ -52,6 +52,34 @@
         </div>
 
         <div class="col-md-10 bg-success p-3">
+            <ul class="navbar-nav float-right pl-2">
+                <li class="nav-item dropdown">
+                    <a id="navbarDropdown" class="nav-link text-black-50 dropdown-toggle" href="#" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        {{ Auth::user()->name }} <span class="caret"></span>
+                    </a>
+
+                    <div class="dropdown-menu dropdown-menu-right bg-info" aria-labelledby="navbarDropdown">
+                        @if (auth()->user()->admin)
+                            <a class="dropdown-item"
+                               href="{{ route('welcome', ['language' => App::getlocale()]) }}">
+                                {{__('Back to public page')}}
+                            </a>
+                        @endif
+                        <a class="dropdown-item" href="{{ route('logout', ['language' => App::getlocale()]) }}"
+                           onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout', ['language' => App::getlocale()]) }}"
+                              method="POST"
+                              style="display: none;">
+                            @csrf
+                        </form>
+                    </div>
+                </li>
+            </ul>
             @yield('content')
         </div>
     </div>

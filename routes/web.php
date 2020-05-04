@@ -12,9 +12,10 @@
 */
 
 
-Auth::routes();
 
 Route::group(['prefix' => '{language}', 'middleware' => 'localization'], function () {
+
+    Auth::routes();
 
     Route::get('/home', 'HomeController@index')->name('home');
 
@@ -23,7 +24,7 @@ Route::group(['prefix' => '{language}', 'middleware' => 'localization'], functio
     })->name('welcome');
 });
 
-Route::group(['prefix' => 'admin', 'middleware' => 'web'], function () {
+Route::group(['prefix' => 'admin', 'middleware' => ['web','roleChecker']], function () {
     Route::get('dashboard', 'Admin\UserController@index')->name('admin.dashboard');
     Route::get('users', 'Admin\UserController@listUsers')->name('admin.users');
 });
