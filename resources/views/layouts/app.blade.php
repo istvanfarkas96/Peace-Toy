@@ -70,9 +70,6 @@
                         <a class="nav-link text-white" href="{{ route('login', ['language' => App::getlocale()]) }}">{{ __('Login') }}</a>
                     </li>
                     @if (Route::has('register'))
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="{{ route('register', ['language' => App::getlocale()]) }}">{{ __('Register') }}</a>
-                        </li>
                     @endif
                 @else
                     <li class="nav-item dropdown">

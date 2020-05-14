@@ -14,14 +14,9 @@
 
 
 Route::group(['prefix' => '{language}', 'middleware' => 'localization'], function () {
-
     Auth::routes();
-
     Route::get('/home', 'HomeController@index')->name('home');
-
-    Route::get('/', function () {
-        return view('welcome');
-    })->name('welcome');
+    Route::get('/', function () { return view('welcome'); })->name('welcome');
 });
 
 Route::group(['prefix' => 'admin', 'middleware' => ['web','roleChecker']], function () {

@@ -7,8 +7,6 @@
             <h1>{{__('Video courses without limits')}}</h1>
             @guest
                 <a href="{{ route('register', ['language' => App::getlocale()]) }}" class="btn-lg btn-success">{{__('Get started')}}</a>
-            @else
-                mitudomen
             @endguest
         </div>
     </div>
