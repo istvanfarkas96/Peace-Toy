@@ -32,29 +32,9 @@
                 <i class="color-green fas fa-dragon"></i>
                 <span class="color-green logo">Peace</span><span class="text-white logo">Toy</span>
             </a>
-
-            <nav class="sidebar-nav m-4">
-                <ul class="sidebar-list list-unstyled text-center">
-                    <li class="pt-3 border-bottom">
-                        <a href="{{route('admin.users')}}" class="text-decoration-none">Users</a>
-                    </li>
-
-                    <li class="pt-3 border-bottom">
-                        <a href="" class="text-decoration-none">Subscriptions</a>
-                    </li>
-
-                    <li class="pt-3 border-bottom">
-                        <a href="" class="text-decoration-none">Reviews</a>
-                    </li>
-
-                </ul>
-            </nav>
-        </div>
-
-        <div class="col-md-10 bg-success p-3">
-            <ul class="navbar-nav float-right pl-2">
+            <ul class="navbar-nav text-center pl-2">
                 <li class="nav-item dropdown">
-                    <a id="navbarDropdown" class="nav-link text-black-50 dropdown-toggle" href="#" role="button"
+                    <a id="navbarDropdown" class="nav-link text-white text-center dropdown-toggle" href="#" role="button"
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                         {{ Auth::user()->name }} <span class="caret"></span>
                     </a>
@@ -80,6 +60,27 @@
                     </div>
                 </li>
             </ul>
+
+            <nav class="sidebar-nav m-4">
+                <ul class="sidebar-list list-unstyled text-center">
+                    <li class="pt-3 border-bottom">
+                        <a href="{{route('admin.users')}}" class="text-decoration-none">Users</a>
+                    </li>
+
+                    <li class="pt-3 border-bottom">
+                        <a href="" class="text-decoration-none">Subscriptions</a>
+                    </li>
+
+                    <li class="pt-3 border-bottom">
+                        <a href="" class="text-decoration-none">Reviews</a>
+                    </li>
+
+                </ul>
+            </nav>
+        </div>
+
+        <div class="col-md-10 bg-info p-3">
+            @include('layouts._flash')
             @yield('content')
         </div>
     </div>

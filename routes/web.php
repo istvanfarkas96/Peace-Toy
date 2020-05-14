@@ -25,6 +25,7 @@ Route::group(['prefix' => '{language}', 'middleware' => 'localization'], functio
 });
 
 Route::group(['prefix' => 'admin', 'middleware' => ['web','roleChecker']], function () {
-    Route::get('dashboard', 'Admin\UserController@index')->name('admin.dashboard');
-    Route::get('users', 'Admin\UserController@listUsers')->name('admin.users');
+    Route::get('dashboard', 'Admin\UserController@dashboard')->name('admin.dashboard');
+    Route::get('users', 'Admin\UserController@index')->name('admin.users');
+    Route::resource('user','Admin\UserController');
 });
