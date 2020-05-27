@@ -11,13 +11,13 @@
 |
 */
 
-
-
 Route::group(['prefix' => '{language}', 'middleware' => 'localization'], function () {
     Auth::routes();
     Route::get('/home', 'HomeController@index')->name('home');
     Route::get('/', function () { return view('welcome'); })->name('welcome');
 });
+
+Route::post('/video/store', 'HomeController@store')->name('video.store');
 
 Route::group(['prefix' => 'admin', 'middleware' => ['web','roleChecker']], function () {
     Route::get('dashboard', 'Admin\UserController@dashboard')->name('admin.dashboard');

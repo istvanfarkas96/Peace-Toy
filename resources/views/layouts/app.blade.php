@@ -40,69 +40,73 @@
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <!-- Left Side Of Navbar -->
-            <ul class="navbar-nav mr-auto">
+                <!-- Left Side Of Navbar -->
+                <ul class="navbar-nav mr-auto">
 
-            </ul>
+                </ul>
 
-            <!-- Right Side Of Navbar -->
-            <?php $currentRoute = Route::current();?>
-            <ul class="navbar-nav ml-auto">
-                <div class="language dropdown mr-5">
+                <!-- Right Side Of Navbar -->
+                <?php $currentRoute = Route::current();?>
+                <ul class="navbar-nav ml-auto">
+                    <div class="language dropdown mr-5">
                     <span
-                        data-toggle="dropdown" class="flag-icon flag-icon-{{ Config::get(sprintf('app.supported_locales.%s.flag', app()->getLocale())) }} flag-lg"></span>
-                    <img class="language-arrow dropdown-toggle-split" src="/images/toggle.svg"
-                         data-toggle="dropdown">
-                    <div class="dropdown-menu dropdown-menu-right bg-info">
-                        @foreach( Config::get('app.supported_locales') as $key => $locale )
-                            <a class="dropdown-item"
-                               href="{{ route($currentRoute->getName(), array_merge($currentRoute->parameters, ['language' =>  $key])) }}"><span
-                                    class="flag-icon flag-icon-{{ $locale['flag'] }} flag-shadow"></span>
-                                <div class="language-name">{{ __($locale['name']) }}</div>
-                            </a>
-                        @endforeach
-                    </div>
-                </div>
-
-            <!-- Authentication Links -->
-                @guest
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="{{ route('login', ['language' => App::getlocale()]) }}">{{ __('Login') }}</a>
-                    </li>
-                    @if (Route::has('register'))
-                    @endif
-                @else
-                    <li class="nav-item dropdown">
-                        <a id="navbarDropdown" class="nav-link text-white dropdown-toggle" href="#" role="button"
-                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            {{ Auth::user()->name }} <span class="caret"></span>
-                        </a>
-
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            @if (auth()->user()->admin)
-                            <a class="dropdown-item" href="{{ route('admin.dashboard') }}">
-                                {{__('Acces admin')}}
-                            </a>
-                            @endif
-                            <a class="dropdown-item" href="{{ route('logout', ['language' => App::getlocale()]) }}"
-                               onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
-                            </a>
-
-                            <form id="logout-form" action="{{ route('logout', ['language' => App::getlocale() ]) }}" method="POST"
-                                  style="display: none;">
-                                @csrf
-                            </form>
+                            data-toggle="dropdown"
+                            class="flag-icon flag-icon-{{ Config::get(sprintf('app.supported_locales.%s.flag', app()->getLocale())) }} flag-lg"></span>
+                        <img class="language-arrow dropdown-toggle-split" src="/images/toggle.svg"
+                             data-toggle="dropdown">
+                        <div class="dropdown-menu dropdown-menu-right bg-info">
+                            @foreach( Config::get('app.supported_locales') as $key => $locale )
+                                <a class="dropdown-item"
+                                   href="{{ route($currentRoute->getName(), array_merge($currentRoute->parameters, ['language' =>  $key])) }}"><span
+                                            class="flag-icon flag-icon-{{ $locale['flag'] }} flag-shadow"></span>
+                                    <div class="language-name">{{ __($locale['name']) }}</div>
+                                </a>
+                            @endforeach
                         </div>
-                    </li>
-                @endguest
-            </ul>
+                    </div>
+
+                    <!-- Authentication Links -->
+                    @guest
+                        <li class="nav-item">
+                            <a class="nav-link text-white"
+                               href="{{ route('login', ['language' => App::getlocale()]) }}">{{ __('Login') }}</a>
+                        </li>
+                        @if (Route::has('register'))
+                        @endif
+                    @else
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link text-white dropdown-toggle" href="#" role="button"
+                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{ Auth::user()->name }} <span class="caret"></span>
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                @if (auth()->user()->admin)
+                                    <a class="dropdown-item" href="{{ route('admin.dashboard') }}">
+                                        {{__('Acces admin')}}
+                                    </a>
+                                @endif
+                                <a class="dropdown-item" href="{{ route('logout', ['language' => App::getlocale()]) }}"
+                                   onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout', ['language' => App::getlocale() ]) }}"
+                                      method="POST"
+                                      style="display: none;">
+                                    @csrf
+                                </form>
+                            </div>
+                        </li>
+                    @endguest
+                </ul>
+            </div>
         </div>
     </nav>
 </div>
-
-@yield('content')
+<div>
+    @yield('content')
 </div>
 </body>
 </html>
