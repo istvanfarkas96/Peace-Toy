@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 
+use App\Category;
+use App\Http\Requests\UploadVideoRequest;
 use App\Video;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
@@ -27,16 +30,27 @@ class HomeController extends Controller
         return view('home', ['videos' => $videos]);
     }
 
-    public function store(Request $request)
+    public function store(UploadVideoRequest $request)
     {
         $user = Auth::user();
 
-        if ($request->hasFile('video')) {
-            $video = Video::create([
-                'user_id' =>$user->id,
-            ]);
-            $video->addMediaFromRequest('video')->toMediaCollection();
-            $video->save();
-        }
+        $video = Video::create([
+            'user_id' => $user->id,
+            'title' => $request->title,
+            'description' => $request->description,
+            'category' => $request->category
+        ]);
+        $video->addMediaFromRequest('video')->toMediaCollection();
+
+        $video->save();
+
+        return redirect(route('home', App::getLocale()))->with('success', 'The video was uploaded successfully');
+    }
+
+    public function upload()
+    {
+        $categories = Category::all();
+
+        return view('video/upload', ['categories' => $categories]);
     }
 }

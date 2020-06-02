@@ -20,8 +20,7 @@
                     <div class="card mb-4">
                         <video width="400" height="200" poster="{{$video->getFirstMedia()}}"></video>
                         <div class="card-body">
-                            <p class="card-text">Random text Random textRandom textRandom textRandom textRandom
-                                textRandom textRandom textRandom text</p>
+                            <h1  class="card-text">{{$video->title}}</h1>
                         </div>
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group p-3">
@@ -33,16 +32,6 @@
                     </div>
                 </div>
             @endforeach
-        </div>
-    </div>
-
-    <div class="container-fluid">
-        <div class="text-center">
-        </div>
-        <div>
-            {!! Form::open(['route' => 'video.store', 'method' => 'POST', 'files' =>'true']) !!}
-            {{ Form::file('video') }}
-            {{ Form::submit(__('Submit')) }}
         </div>
     </div>
 

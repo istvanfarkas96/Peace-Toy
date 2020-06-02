@@ -15,6 +15,7 @@ Route::group(['prefix' => '{language}', 'middleware' => 'localization'], functio
     Auth::routes();
     Route::get('/home', 'HomeController@index')->name('home');
     Route::get('/', function () { return view('welcome'); })->name('welcome');
+    Route::get('/upload', 'HomeController@upload')->name('upload');
 });
 
 Route::post('/video/store', 'HomeController@store')->name('video.store');

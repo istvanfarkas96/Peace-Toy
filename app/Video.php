@@ -12,7 +12,7 @@ class Video extends Model implements HasMedia
 {
     use HasMediaTrait;
 
-    protected $fillable = ['user_id'];
+    protected $fillable = ['user_id', 'title', 'description', 'category'];
 
     public function user()
     {

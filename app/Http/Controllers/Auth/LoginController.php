@@ -34,7 +34,7 @@ class LoginController extends Controller
 
     protected function authenticated(Request $request, $user)
     {
-        return redirect(route('welcome', ['language' => App::getLocale()]));
+        return redirect(route('home', ['language' => App::getLocale()]));
     }
 
     protected function loggedOut(Request $request)

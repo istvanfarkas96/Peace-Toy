@@ -1,0 +1,72 @@
+@extends('layouts.app')
+
+@section('content')
+
+    <div class="container">
+        <div class="p-4 text-center">
+            <h4>{{ __('Upload your own video') }}</h4>
+        </div>
+
+        <div class="form-group">
+            <label class="d-flex justify-content-center">
+                {{__('Title')}}
+            </label>
+            {!! Form::open(['route' => 'video.store', 'method' => 'POST', 'files' =>'true']) !!}
+            {{ Form::text('title', null, [
+                         'class' => 'form-control form-control-lg text-center col-md-5 m-auto' . ($errors->has('title') ? ' is-invalid' : ''),
+                         'placeholder' => __('Title'),
+                         'required'
+                     ])
+             }}
+            @if ($errors->has('title'))
+                <div class="invalid-feedback justify-content-center d-flex">{{ $errors->first('title') }}</div>
+            @endif
+        </div>
+
+        <div class="form-group">
+            <label class="d-flex justify-content-center">
+                {{ __('Description') }}
+            </label>
+            {{ Form::textarea('description', null, [
+                'class' => 'form-control col-md-5 m-auto text-center' . ($errors->has('description') ? ' is-invalid' : ''),
+                'placeholder' => __('Describe your video'),
+                'required'
+            ] ) }}
+            @if ($errors->has('description'))
+                <div class="invalid-feedback justify-content-center d-flex">{{ $errors->first('description') }}</div>
+            @endif
+        </div>
+
+        <div class="form-group">
+            <label class="d-flex justify-content-center">
+                {{__('Which category fits your video?')}}
+            </label>
+            <div class="row">
+                @foreach($categories as $category)
+                    <div class="col-md-3 m-auto text-center">
+                        {{ Form::radio('category', $category->name, false, [
+                            'class' => 'm-1' . ($errors->has('category') ? ' is-invalid' : ''),
+                        ] ) }}
+                        <label>{{$category->name}}</label>
+                    </div>
+                @endforeach
+                @if ($errors->has('category'))
+                    <div class="invalid-feedback justify-content-center d-flex">{{ $errors->first('category') }}</div>
+                @endif
+            </div>
+
+            <div class="form-group text-center p-5">
+                {{ Form::file('video') }}
+                @if ($errors->has('video'))
+                    <div class="invalid-feedback justify-content-center d-flex">{{ $errors->first('video') }}</div>
+                @endif
+            </div>
+
+            <div class="form-group">
+                {{ Form::submit(__('Submit'),[ 'class' => 'btn btn-success m-auto d-flex']) }}
+            </div>
+
+            {!! Form::close() !!}
+        </div>
+    </div>
+@endsection
