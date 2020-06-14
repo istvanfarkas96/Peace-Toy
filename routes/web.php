@@ -15,10 +15,11 @@ Route::group(['prefix' => '{language}', 'middleware' => 'localization'], functio
     Auth::routes();
     Route::get('/home', 'HomeController@index')->name('home');
     Route::get('/', function () { return view('welcome'); })->name('welcome');
-    Route::get('/upload', 'HomeController@upload')->name('upload');
+    Route::get('/upload', 'HomeController@upload')->name('video/upload');
+    Route::get('/{id}', 'VideoController@show')->name('video/show');
 });
 
-Route::post('/video/store', 'HomeController@store')->name('video.store');
+Route::post('/video/store', 'VideoController@store')->name('video.store');
 
 Route::group(['prefix' => 'admin', 'middleware' => ['web','roleChecker']], function () {
     Route::get('dashboard', 'Admin\UserController@dashboard')->name('admin.dashboard');

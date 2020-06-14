@@ -27,7 +27,7 @@
     <nav class="navbar navbar-expand-sm navbar-light bg-dark shadow-sm">
         <div class="container-self container" style="max-width: 95%">
             <div class="font-weight-bold logo">
-                <a class="navbar-brand" href="{{route('welcome', ['language' => app()->getLocale()])}}">
+                <a class="navbar-brand" href="{{route('home', ['language' => app()->getLocale()])}}">
                     <i class="color-green fas fa-dragon"></i>
                     <span class="color-green logo">Peace</span><span class="text-white logo">Toy</span>
                 </a>
@@ -42,7 +42,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
                     <div>
-                        <a class="btn btn-danger logo" href="{{route('upload', ['language' => app()->getLocale()])}}">Upload</a>
+                        <a class="btn btn-danger logo" href="{{route('video/upload', ['language' => app()->getLocale()])}}">Upload</a>
                     </div>
                 </ul>
 

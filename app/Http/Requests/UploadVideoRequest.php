@@ -15,7 +15,7 @@ class UploadVideoRequest extends FormRequest
             'title' => 'required|min:3|max:50',
             'description' => 'required|min:3|max:500',
             'category' => 'required',
-            'video' => 'required|mimes:video/mp4'
+            'video' => 'required',
         ];
     }
 }

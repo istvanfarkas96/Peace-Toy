@@ -4,7 +4,7 @@
     <section>
         <div class="container-fluid p-0 pb-4">
             <video autoplay muted loop>
-                <source id="mp4" src="{{asset('storage/1/bg.mp4')}}" type="video/mp4">
+                <source id="mp4" src="/bg.mp4" type="video/mp4">
             </video>
             <div class="header-video">
                 <h1 class="text-center m-1">Browse videos</h1>
@@ -18,14 +18,19 @@
             @foreach ($videos as $video)
                 <div class="col-md-3">
                     <div class="card mb-4">
-                        <video width="400" height="200" poster="{{$video->getFirstMedia()}}"></video>
+                        <div class="mt-3">
+                            <img width="200" height="200" class="d-flex m-auto" src="{{ $video->poster_id ? $video->getMedia()[1]->getUrl('thumb') : '/video.png' }}">
+
+                        </div>
                         <div class="card-body">
                             <h1  class="card-text">{{$video->title}}</h1>
                         </div>
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group p-3">
-                                <button type="button" class="btn btn-sm btn-primary">View</button>
-                                <button type="button" class="btn btn-sm btn-secondary">Edit</button>
+                                <a class="btn btn-sm btn-primary text-white" href="{{ route('video/show', ['language' => App::getLocale(), 'id' => $video->id]) }}">View</a>
+                                @if ($video->user_id == Auth::user()->id)
+                                <a class="btn btn-sm btn-secondary">Edit</a>
+                                @endif
                             </div>
                             <small class="text-muted p-3">{{$video->created_at}}</small>
                         </div>

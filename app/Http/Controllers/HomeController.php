@@ -30,23 +30,6 @@ class HomeController extends Controller
         return view('home', ['videos' => $videos]);
     }
 
-    public function store(UploadVideoRequest $request)
-    {
-        $user = Auth::user();
-
-        $video = Video::create([
-            'user_id' => $user->id,
-            'title' => $request->title,
-            'description' => $request->description,
-            'category' => $request->category
-        ]);
-        $video->addMediaFromRequest('video')->toMediaCollection();
-
-        $video->save();
-
-        return redirect(route('home', App::getLocale()))->with('success', 'The video was uploaded successfully');
-    }
-
     public function upload()
     {
         $categories = Category::all();

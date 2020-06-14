@@ -9,7 +9,7 @@
 
         <div class="form-group">
             <label class="d-flex justify-content-center">
-                {{__('Title')}}
+                {{__('Title')}}*
             </label>
             {!! Form::open(['route' => 'video.store', 'method' => 'POST', 'files' =>'true']) !!}
             {{ Form::text('title', null, [
@@ -25,7 +25,7 @@
 
         <div class="form-group">
             <label class="d-flex justify-content-center">
-                {{ __('Description') }}
+                {{ __('Description') }}*
             </label>
             {{ Form::textarea('description', null, [
                 'class' => 'form-control col-md-5 m-auto text-center' . ($errors->has('description') ? ' is-invalid' : ''),
@@ -39,7 +39,7 @@
 
         <div class="form-group">
             <label class="d-flex justify-content-center">
-                {{__('Which category fits your video?')}}
+                {{__('Which category fits your video?')}}*
             </label>
             <div class="row">
                 @foreach($categories as $category)
@@ -55,10 +55,20 @@
                 @endif
             </div>
 
-            <div class="form-group text-center p-5">
+            <div class="form-group text-center p-5 border-dark">
+                <h4>{{__('Upload video')}}*</h4>
                 {{ Form::file('video') }}
                 @if ($errors->has('video'))
                     <div class="invalid-feedback justify-content-center d-flex">{{ $errors->first('video') }}</div>
+                @endif
+            </div>
+
+            <div class="form-group text-center p-5">
+                <h5>{{__('Choose a poster for your video')}}</h5>
+                <div class="mb-4 mt-0">{{__('*this will be displayed in the search or just a default video icon')}}</div>
+                {{ Form::file('poster') }}
+                @if ($errors->has('poster'))
+                    <div class="invalid-feedback justify-content-center d-flex">{{ $errors->first('poster') }}</div>
                 @endif
             </div>
 
