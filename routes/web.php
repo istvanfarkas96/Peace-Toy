@@ -11,6 +11,12 @@
 |
 */
 
+Route::group(['prefix' => 'admin', 'middleware' => ['web','roleChecker']], function () {
+    Route::get('/dashboard', 'Admin\UserController@dashboard')->name('admin.dashboard');
+    Route::get('/users', 'Admin\UserController@index')->name('admin.users');
+    Route::resource('/user','Admin\UserController');
+});
+
 Route::group(['prefix' => '{language}', 'middleware' => 'localization'], function () {
     Auth::routes();
     Route::get('/home', 'HomeController@index')->name('home');
@@ -20,9 +26,4 @@ Route::group(['prefix' => '{language}', 'middleware' => 'localization'], functio
 });
 
 Route::post('/video/store', 'VideoController@store')->name('video.store');
-
-Route::group(['prefix' => 'admin', 'middleware' => ['web','roleChecker']], function () {
-    Route::get('dashboard', 'Admin\UserController@dashboard')->name('admin.dashboard');
-    Route::get('users', 'Admin\UserController@index')->name('admin.users');
-    Route::resource('user','Admin\UserController');
-});
+Route::post('/review/store/{id}','ReviewController@store')->name('review.store');

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 
 use App\Http\Requests\UploadVideoRequest;
+use App\Review;
 use App\Video;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
@@ -34,6 +35,9 @@ class VideoController extends Controller
     public function show($lang, $id)
     {
         $video = Video::where('id', $id)->first();
-        return view('video/show', ['video' => $video]);
+        $reviews = Review::where('video_id', $video->id)->get();
+        $rating = $reviews->avg('rating');
+
+        return view('video/show', ['video' => $video, 'reviews' => $reviews, 'rating' => round($rating,2)]);
     }
 }

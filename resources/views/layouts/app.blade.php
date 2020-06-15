@@ -23,7 +23,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-<div id="app">
+<div>
     <nav class="navbar navbar-expand-sm navbar-light bg-dark shadow-sm">
         <div class="container-self container" style="max-width: 95%">
             <div class="font-weight-bold logo">
@@ -40,11 +40,13 @@
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                @auth
                 <ul class="navbar-nav ml-auto">
                     <div>
-                        <a class="btn btn-danger logo" href="{{route('video/upload', ['language' => app()->getLocale()])}}">Upload</a>
+                        <a class="btn btn-danger logo" href="{{route('video/upload', ['language' => app()->getLocale()])}}">{{ __('Upload') }}</a>
                     </div>
                 </ul>
+                @endauth
 
                 <!-- Right Side Of Navbar -->
                 <?php $currentRoute = Route::current();?>
@@ -63,7 +65,7 @@
                                     <div class="language-name">{{ __($locale['name']) }}</div>
                                 </a>
                             @endforeach
-                        </div>
+                           </div>
                     </div>
 
                     <!-- Authentication Links -->
@@ -106,7 +108,7 @@
         </div>
     </nav>
 </div>
-<div>
+<div id="app">
     @include('layouts._flash')
     @yield('content')
 </div>
