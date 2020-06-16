@@ -23,11 +23,11 @@ Route::group(['prefix' => '{language}', 'middleware' => 'localization'], functio
     Auth::routes();
     Route::get('/home', 'HomeController@index')->name('home');
     Route::get('/', function () { return view('welcome'); })->name('welcome');
-    Route::get('/upload', 'HomeController@upload')->name('video/upload');
-    Route::get('/{id}', 'VideoController@show')->name('video/show');
+    Route::get('/upload', 'HomeController@upload')->name('video.upload');
+    Route::get('/{id}', 'VideoController@show')->name('video.show');
+    Route::post('search', 'VideoController@search')->name('video.search');
 });
 
 
 Route::post('/video/store', 'VideoController@store')->name('video.store');
-Route::post('search', 'VideoController@search')->name('video.search');
 Route::post('/review/store/{id}','ReviewController@store')->name('review.store');

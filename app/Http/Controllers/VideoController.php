@@ -3,7 +3,6 @@
 
 namespace App\Http\Controllers;
 
-
 use App\Http\Requests\UploadVideoRequest;
 use App\Review;
 use App\Video;
@@ -38,7 +37,10 @@ class VideoController extends Controller
     {
         $video = Video::where('id', $id)->first();
         $reviews = Review::where('video_id', $video->id)->get();
+
         $rating = $reviews->avg('rating');
+        $video->rating = $rating;
+        $video->save();
 
         $video->views++;
         $video->save();
@@ -46,9 +48,11 @@ class VideoController extends Controller
         return view('video/show', ['video' => $video, 'reviews' => $reviews, 'rating' => round($rating, 2)]);
     }
 
-    public function search(Request $request)
+    public function search($lang, Request $request)
     {
-        $videos = Video::where('title', 'like', '%'. $request->search.'%')->get();
+        $videos = Video::where('title', 'like', '%' . $request->search . '%')->get();
+
         return view('home', ['videos' => $videos]);
     }
+
 }

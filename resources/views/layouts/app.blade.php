@@ -44,7 +44,7 @@
                 @auth
                 <ul class="navbar-nav ml-auto">
                     <div>
-                        <a class="btn btn-danger logo" href="{{route('video/upload', ['language' => app()->getLocale()])}}">{{ __('Upload') }}</a>
+                        <a class="btn btn-danger logo" href="{{route('video.upload', ['language' => app()->getLocale()])}}">{{ __('Upload') }}</a>
                     </div>
                 </ul>
                 @endauth
@@ -87,7 +87,7 @@
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 @if (auth()->user()->admin)
                                     <a class="dropdown-item" href="{{ route('admin.dashboard') }}">
-                                        {{__('Acces admin')}}
+                                        {{__('Access admin')}}
                                     </a>
                                 @endif
                                 <a class="dropdown-item" href="{{ route('logout', ['language' => App::getlocale()]) }}"
