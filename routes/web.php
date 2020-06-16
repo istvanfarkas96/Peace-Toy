@@ -15,6 +15,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['web','roleChecker']], funct
     Route::get('/dashboard', 'Admin\UserController@dashboard')->name('admin.dashboard');
     Route::get('/users', 'Admin\UserController@index')->name('admin.users');
     Route::resource('/user','Admin\UserController');
+    Route::get('/reviews','Admin\ReviewController@index')->name('admin.reviews');
+    Route::delete('/review/delete/{review}', 'Admin\ReviewController@destroy')->name('review.destroy');
 });
 
 Route::group(['prefix' => '{language}', 'middleware' => 'localization'], function () {
@@ -25,5 +27,7 @@ Route::group(['prefix' => '{language}', 'middleware' => 'localization'], functio
     Route::get('/{id}', 'VideoController@show')->name('video/show');
 });
 
+
 Route::post('/video/store', 'VideoController@store')->name('video.store');
+Route::post('search', 'VideoController@search')->name('video.search');
 Route::post('/review/store/{id}','ReviewController@store')->name('review.store');

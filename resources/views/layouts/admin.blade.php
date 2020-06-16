@@ -64,7 +64,7 @@
             <nav class="sidebar-nav m-4">
                 <ul class="sidebar-list list-unstyled text-center">
                     <li class="pt-3 border-bottom">
-                        <a href="{{route('admin.users')}}" class="text-decoration-none">Users</a>
+                        <a href="{{ route('admin.users') }}" class="text-decoration-none">Users</a>
                     </li>
 
                     <li class="pt-3 border-bottom">
@@ -72,7 +72,7 @@
                     </li>
 
                     <li class="pt-3 border-bottom">
-                        <a href="" class="text-decoration-none">Reviews</a>
+                        <a href="{{ route('admin.reviews') }}" class="text-decoration-none">Reviews</a>
                     </li>
 
                 </ul>

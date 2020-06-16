@@ -7,11 +7,13 @@ namespace App\Http\Controllers;
 use App\Http\Requests\UploadVideoRequest;
 use App\Review;
 use App\Video;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 
 class VideoController extends Controller
 {
+
     public function store(UploadVideoRequest $request)
     {
         $user = Auth::user();
@@ -38,6 +40,12 @@ class VideoController extends Controller
         $reviews = Review::where('video_id', $video->id)->get();
         $rating = $reviews->avg('rating');
 
-        return view('video/show', ['video' => $video, 'reviews' => $reviews, 'rating' => round($rating,2)]);
+        return view('video/show', ['video' => $video, 'reviews' => $reviews, 'rating' => round($rating, 2)]);
+    }
+
+    public function search(Request $request)
+    {
+        $videos = Video::where('title', 'like', '%'. $request->search.'%')->get();
+        return view('home', ['videos' => $videos]);
     }
 }
