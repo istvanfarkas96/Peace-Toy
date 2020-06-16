@@ -26,7 +26,6 @@
                         <div class="mt-3">
                             <img width="200" height="200" class="d-flex m-auto"
                                  src="{{ $video->poster_id ? $video->getMedia()[1]->getUrl('thumb') : '/video.png' }}">
-
                         </div>
                         <div class="card-body">
                             <h1 class="card-text">{{$video->title}}</h1>
@@ -38,6 +37,7 @@
                                 @if ($video->user_id == Auth::user()->id)
                                     <a class="btn btn-sm btn-secondary">Edit</a>
                                 @endif
+                                <span class="ml-5"><i class="fa fa-eye" aria-hidden="true"></i>Views:{{ $video->views }}</span>
                             </div>
                             <small class="text-muted p-3">{{$video->created_at}}</small>
                         </div>

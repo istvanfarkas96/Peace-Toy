@@ -22,7 +22,7 @@ class CreateVideosTable extends Migration
             $table->string('category');
             $table->string('poster_id')->nullable();
             $table->integer('rating')->nullable();
-            $table->bigInteger('views')->nullable();
+            $table->bigInteger('views')->nullable()->default(0);
             $table->timestamps();
         });
 

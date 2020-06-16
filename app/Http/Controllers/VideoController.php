@@ -40,6 +40,9 @@ class VideoController extends Controller
         $reviews = Review::where('video_id', $video->id)->get();
         $rating = $reviews->avg('rating');
 
+        $video->views++;
+        $video->save();
+
         return view('video/show', ['video' => $video, 'reviews' => $reviews, 'rating' => round($rating, 2)]);
     }
 
