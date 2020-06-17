@@ -38,9 +38,9 @@
                     </tr>
                 @endforeach
                 </tbody>
-
             </table>
         </div>
+        {{ $reviews->appends(['sort' => 'reviews'])->render() }}
     </div>
 
 @endsection

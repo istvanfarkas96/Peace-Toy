@@ -44,9 +44,9 @@
                     </tr>
                 @endforeach
                 </tbody>
-
             </table>
         </div>
+        {{ $users->appends(['sort' => 'users'])->render() }}
     </div>
 
 @endsection

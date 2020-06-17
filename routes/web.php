@@ -11,12 +11,14 @@
 |
 */
 
-Route::group(['prefix' => 'admin', 'middleware' => ['web','roleChecker']], function () {
+Route::group(['prefix' => 'admin', 'middleware' => [ 'web', 'auth','roleChecker']], function () {
     Route::get('/dashboard', 'Admin\UserController@dashboard')->name('admin.dashboard');
     Route::get('/users', 'Admin\UserController@index')->name('admin.users');
     Route::resource('/user','Admin\UserController');
     Route::get('/reviews','Admin\ReviewController@index')->name('admin.reviews');
     Route::delete('/review/delete/{review}', 'Admin\ReviewController@destroy')->name('review.destroy');
+    Route::get('/videos','Admin\VideoController@index')->name('admin.videos');
+    Route::delete('/video/delete/{video}','Admin\VideoController@destroy')->name('video.destroy');
 });
 
 Route::group(['prefix' => '{language}', 'middleware' => 'localization'], function () {

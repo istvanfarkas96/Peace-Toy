@@ -64,15 +64,15 @@
             <nav class="sidebar-nav m-4">
                 <ul class="sidebar-list list-unstyled text-center">
                     <li class="pt-3 border-bottom">
-                        <a href="{{ route('admin.users') }}" class="text-decoration-none">Users</a>
+                        <a href="{{ route('admin.users') }}" class="text-decoration-none">{{__('Users')}}</a>
                     </li>
 
                     <li class="pt-3 border-bottom">
-                        <a href="" class="text-decoration-none">Reviews</a>
+                        <a href="{{ route('admin.videos') }}" class="text-decoration-none">{{ __('Videos') }}</a>
                     </li>
 
                     <li class="pt-3 border-bottom">
-                        <a href="{{ route('admin.reviews') }}" class="text-decoration-none">Reviews</a>
+                        <a href="{{ route('admin.reviews') }}" class="text-decoration-none">{{ __('Reviews') }}</a>
                     </li>
 
                 </ul>
