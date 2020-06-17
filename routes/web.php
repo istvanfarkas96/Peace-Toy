@@ -35,4 +35,5 @@ Route::group(['prefix' => '{language}', 'middleware' => 'localization'], functio
 Route::post('/video/store', 'VideoController@store')->name('video.store');
 Route::post('/review/store/{id}','ReviewController@store')->name('review.store');
 Route::put('video/update/{video}',  'VideoController@update')->name('video.update');
+Route::get('{user}/report/{review}', 'ReviewController@report')->name('review.report');
 

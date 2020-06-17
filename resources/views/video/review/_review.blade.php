@@ -10,7 +10,11 @@
         -
         <time class="">{{ $review->created_at->diffForHumans() }}</time>
     </div>
-    <div class="p-4">
+    <div class="pt-4">
         <p>{{ $review->comment }}</p>
+    </div>
+    <div class="col-md-12">
+        <a href="{{route('review.report', ['review' => $review, 'user' => Auth::user()])}}"><i class="fa fa-exclamation-circle float-right mb-2"
+                                         style="color:red">&nbsp;{{ __('Report') }}</i></a>
     </div>
 </div>

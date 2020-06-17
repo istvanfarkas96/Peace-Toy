@@ -7,6 +7,9 @@
 @section('content')
 
     <div class="card card-accent-success">
+        <div class="font-weight-bold card-header">
+            {{ __('Videos') }}
+        </div>
         <div class="card-body">
             <table class="table table-striped table-hover">
                 <thead>

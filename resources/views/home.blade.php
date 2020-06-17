@@ -28,7 +28,7 @@
                     <div class="col-md-3">
                         <div class="card mb-4">
                             <div class="mt-3">
-                                <h4 class="ml-5 text-center border-bottom"><i class="fa fa-star" aria-hidden="true"></i>{{ $video->rating ?: 0 }}/5</h4>
+                                <h4 class="ml-5 text-center float-right pr-2"><i class="fa fa-star" aria-hidden="true"></i>{{ $video->rating ?: 0 }}/5</h4>
 
                                 <img width="200" height="200" class="d-flex m-auto"
                                      src="{{ $video->poster_id ? $video->getMedia()[1]->getUrl('thumb') : '/video.png' }}">
