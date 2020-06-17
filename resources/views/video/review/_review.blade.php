@@ -1,4 +1,4 @@
-    <div class="color-green row review col-md-6 pl-5 m-5">
+<div class="color-green row review col-md-6 pl-5 m-5">
     <div class="row col-md-9 pt-2 border-bottom">
         <div class="pt-2 pr-3">
             @include ('video._readOnly-rating', ['rating' => $review->rating, 'width' => 21])

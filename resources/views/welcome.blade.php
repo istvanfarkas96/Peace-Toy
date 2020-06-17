@@ -8,6 +8,9 @@
             @guest
                 <a href="{{ route('register', ['language' => App::getlocale()]) }}" class="btn-lg btn-success">{{__('Get started')}}</a>
             @endguest
+            @auth
+                <a href="{{ route('home', ['language' => App::getlocale()]) }}" class="btn-lg btn-info">{{__('Videos')}}</a>
+            @endauth
         </div>
     </div>
     @include("_form")

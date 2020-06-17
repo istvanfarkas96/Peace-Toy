@@ -41,7 +41,7 @@
                                     <a class="btn btn-sm btn-primary text-white"
                                        href="{{ route('video.show', ['language' => App::getLocale(), 'id' => $video->id]) }}">View</a>
                                     @if ($video->user_id == Auth::user()->id)
-                                        <a class="btn btn-sm btn-secondary">Edit</a>
+                                        <a href="{{ route('video.edit', ['language' => App::getLocale(), 'video' => $video]) }}" class="btn btn-sm btn-secondary">Edit</a>
                                     @endif
                                     <span class="ml-5"><i class="fa fa-eye" aria-hidden="true"></i>Views:{{ $video->views }}</span>
                                 </div>

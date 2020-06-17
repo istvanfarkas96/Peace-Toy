@@ -34,6 +34,6 @@ class HomeController extends Controller
     {
         $categories = Category::all();
 
-        return view('video/upload', ['categories' => $categories]);
+        return view('video/upload', ['categories' => $categories, 'video' => new Video()]);
     }
 }

@@ -68,7 +68,7 @@
                     </li>
 
                     <li class="pt-3 border-bottom">
-                        <a href="" class="text-decoration-none">Subscriptions</a>
+                        <a href="" class="text-decoration-none">Reviews</a>
                     </li>
 
                     <li class="pt-3 border-bottom">

@@ -3,6 +3,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
+use App\Http\Requests\UpdateVideoRequest;
 use App\Http\Requests\UploadVideoRequest;
 use App\Review;
 use App\Video;
@@ -40,7 +42,6 @@ class VideoController extends Controller
 
         $rating = $reviews->avg('rating');
         $video->rating = $rating;
-        $video->save();
 
         $video->views++;
         $video->save();
@@ -55,4 +56,23 @@ class VideoController extends Controller
         return view('home', ['videos' => $videos]);
     }
 
+    public function edit($lang, Video $video)
+    {
+        $categories = Category::all();
+        return view('video.edit', ['video' => $video, 'categories' => $categories]);
+    }
+
+    public function update(UpdateVideoRequest $request, Video $video)
+    {
+        $video->update([
+            'title' => $request->title,
+            'description' => $request->description,
+            'category' => $request->category ? $request->category : $video->category,
+            'video' => $request->video ? $request->video : $video->video,
+            'poster' => $request->poster ? $request->poster : $video->poster
+        ]);
+        $video->save();
+
+        return redirect(route('home', App::getLocale()))->with('success', 'The video was updated successfully');
+    }
 }
