@@ -54,6 +54,7 @@
                 <p class="d-flex m-auto pb-4">No results match your search criteria</p>
             @endif
         </div>
+        {{ $videos->appends(['sort' => 'videos'])->render() }}
     </div>
 @endsection
 

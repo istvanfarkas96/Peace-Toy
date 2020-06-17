@@ -25,7 +25,7 @@ class HomeController extends Controller
 
     public function index()
     {
-        $videos = Video::all();
+        $videos = Video::paginate(30);
 
         return view('home', ['videos' => $videos]);
     }

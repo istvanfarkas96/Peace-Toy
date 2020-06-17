@@ -12,7 +12,7 @@ class ReviewController extends Controller
 
     public function index()
     {
-        $reviews = Review::all();
+        $reviews = Review::paginate(30);
 
         return view('admin/review/index', ['reviews' => $reviews]);
     }
