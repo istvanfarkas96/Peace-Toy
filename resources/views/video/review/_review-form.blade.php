@@ -1,7 +1,7 @@
 <div id="app" class="col-md-4 text-center color-green p-2">
     <h4 class="col-md-10 font-italic">{{ __('Rate') }}:</h4>
     <div class="col-md-10 p-3 mb-2 d-flex justify-content-center">
-        <Rating current-rating="{{ $video->rating }}" v-slot="{rating}">
+        <Rating v-slot="{rating}">
             {{ Form::hidden('rating', null, ['v-model' => 'rating']) }}
         </Rating>
     </div>
@@ -32,7 +32,7 @@
                        ] ) }}
 
             @if ($errors->has('comment'))
-                <div class="invalid-feedback justify-content-center d-flex">{{ $errors->first('review') }}</div>
+                <div class="invalid-feedback justify-content-center d-flex">{{ $errors->first('comment') }}</div>
         @endif
     </div>
     <div class="form-group">

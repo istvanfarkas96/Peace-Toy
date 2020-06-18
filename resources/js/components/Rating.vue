@@ -35,15 +35,8 @@
                 })
             }
         },
-        props: {
-            currentRating: {
-                type: String,
-                required: false,
-            },
-        },
         data() {
             return {
-                baseRating: Number(this.currentRating),
                 stars: []
             }
         },

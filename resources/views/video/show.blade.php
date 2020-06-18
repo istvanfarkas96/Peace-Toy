@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    {!! Form::open(['route' => ['review.store', $video->id], 'method' => 'POST', 'autocomplete' => 'off']) !!}
+    {!! Form::open(['route' => ['review.store', $video], 'method' => 'POST', 'autocomplete' => 'off']) !!}
     <div id="app" class="container-fluid vw-100 p-0 pb-4 bg-secondary">
         <div class="row">
             <div class="col-md-8 text-center pt-4 color-green">
