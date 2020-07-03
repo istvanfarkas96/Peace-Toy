@@ -1,8 +1,15 @@
-{
-    "Video courses without limits": "Cursuri video fara limite",
+    {
+    "Video tutorials without limits": "Video tutorials without limits",
     "Get started": "Get started",
     "Videos": "Videos",
     " How this site works?": " How this site works?",
+    "After register": "After register",
+    "You can browse & upload videos": "You can browse & upload videos",
+    "Upload your own tutorial": "Upload your own tutorial",
+    "By clicking on Upload button on the top of the page": "By clicking on Upload button on the top of the page",
+    "Reviews": "Reviews",
+    "Report": "Report",
+    "You can report inappropriate behavior to admins, they will be notified": "You can report inappropriate behavior to admins, they will be notified",
     "Upload your own video": "Upload your own video",
     "Title": "Title",
     "Description": "Description",
@@ -32,7 +39,6 @@
     "If you did not receive the email": "If you did not receive the email",
     "click here to request another": "click here to request another",
     "Login": "Login",
-    "Remember Me": "Remember Me",
     "Uploader": "Uploader",
     "Rating": "Rating",
     "Views": "Views",
@@ -56,6 +62,5 @@
     "Upload": "Upload",
     "Access admin": "Access admin",
     "Logout": "Logout",
-    "Back to public page": "Back to public page",
-    "Reviews": "Reviews"
+    "Back to public page": "Back to public page"
 }

@@ -6,14 +6,14 @@
         <ul>
             <li>
                 <div>
-                    <h3><i class="fas fa-play">&nbsp</i>First step</h3>
-                    <h4 class="pt-3">You have have to
-                        register to our site</h4>
+                    <h3><i class="fas fa-play">&nbsp</i>{{__('First step')}}</h3>
+                    <h4 class="pt-3">{{__('You have have to
+                        register to our site')}}</h4>
                 </div>
             </li>
             <li>
                 <div>
-                    <h3><i class="fas fa-user">&nbsp</i>{{ __('After registe') }}r</h3>
+                    <h3><i class="fas fa-user">&nbsp</i>{{ __('After register') }}</h3>
                     <h4 class="pt-3">{{ __('You can browse & upload videos') }}</h4></div>
             </li>
             <li>
@@ -24,13 +24,12 @@
             <li>
                 <div>
                     <h3><i class="fas fa-star"></i>{{ __('Reviews') }}</h3>
-                    <h4 class="pt-3"></h4>{{ __('You can get reviews on your videos, and you can review other videos to help
-                    people see which video is worth watching') }}</div>
+                    <h4 class="pt-3">{{__('You can get reviews on your videos, and you can review other videos to help people see which video is worth watching')}}</h4></div>
             </li>
             <li>
                 <div>
                     <h3><i class="fas fa-exclamation-circle">&nbsp;</i>{{ __('Report') }}</h3>
-                    <p class="pt-3">{{ __('You can report inappropriate behavior to admins, they will be notified') }}</p></div>
+                    <h4 class="pt-3">{{ __('You can report inappropriate behavior to admins, they will be notified') }}</h4></div>
             </li>
         </ul>
     </section>
